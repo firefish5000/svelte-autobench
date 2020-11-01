@@ -1,0 +1,15 @@
+diff --git a/node_modules/eslint/lib/rules/no-return-assign.js b/node_modules/eslint/lib/rules/no-return-assign.js
+index 4b57d42..69b0475 100644
+--- a/node_modules/eslint/lib/rules/no-return-assign.js
++++ b/node_modules/eslint/lib/rules/no-return-assign.js
+@@ -58,6 +58,10 @@ module.exports = {
+ 
+                 // Find ReturnStatement or ArrowFunctionExpression in ancestors.
+                 while (parent && !SENTINEL_TYPE.test(parent.type)) {
++                    // Ignore Sequence expressions that do not return assignment
++                    if (parent.type === 'SequenceExpression' && parent.expressions[parent.expressions.length - 1] !== currentChild) {
++                        return;
++                    }
+                     currentChild = parent;
+                     parent = parent.parent;
+                 }

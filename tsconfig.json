@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ESNext"
-    ,"module": "ESNext"
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true
   },
-  "noImplicitAny": true,
   "extends": "@tsconfig/svelte/tsconfig.json",
-  "include": ["src/**/*", "test/**/*"],
-  "exclude": ["node_modules/*", "public/*", "dist/*", ".svench/*"],
-  "baseUrl": "src",
-  "strictNullChecks": true,
-  "paths": {
-    "@/*": ["./*"]
-    ,"@components/*": ["./components/*"]
-  }
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules/**/*",
+    "public/**/*",
+    "dist/**/*",
+    "out/**/*"
+  ],
+  "baseUrl": "src"
 }

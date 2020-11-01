@@ -1,11 +1,7 @@
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
-import { sveltePreprocess } from 'svelte-preprocess/dist/autoProcess';
 import livereload from 'rollup-plugin-livereload';
 import commonjs from '@rollup/plugin-commonjs';
-
-import postcss from 'rollup-plugin-postcss'
 
 import pkg from './package.json';
 
@@ -17,16 +13,7 @@ const name = pkg.name
   .replace(/-\w/g, m => m[1].toUpperCase());
 
 
-
-
-
-const preprocess = [
-  sveltePreprocess({
-    sourceMap: dev,
-    postcss: true,
-    typescript: true,
-  }),
-]
+import {preprocessors as preprocess, extensions} from './svelte-preprocess.config'
 
 export default {
   input: 'src/index.ts',
@@ -38,13 +25,9 @@ export default {
     svelte({
       //emitCss: true,
       dev,
-      extensions: ['.svelte', '.svx'],
+      extensions,
       preprocess,
     }),
-    typescript({sourceMap:dev}),
-    postcss({
-			sourceMap: true
-		}),
     resolve(),
     commonjs(),
   ],

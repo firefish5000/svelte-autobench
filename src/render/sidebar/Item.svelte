@@ -28,7 +28,7 @@ tabindex={-0}
 >
   {$item.name}
   {#if children.length>0}
-  <I data={fas.faChevronRight}/>
+    <I data={fas.faChevronRight}/>
   {/if}
 </a>
 {#if descend}
@@ -37,7 +37,7 @@ tabindex={-0}
 <div class="child flex-grow">
   <svelte:self item={subItem}/>
 </div>
-{/each}
+{/each}  
 </div>
 {/if}
 </div>

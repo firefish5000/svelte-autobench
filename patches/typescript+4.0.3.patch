@@ -1,0 +1,26 @@
+diff --git a/node_modules/typescript/lib/lib.es2015.core.d.ts b/node_modules/typescript/lib/lib.es2015.core.d.ts
+index 9676fce..9abdd03 100644
+--- a/node_modules/typescript/lib/lib.es2015.core.d.ts
++++ b/node_modules/typescript/lib/lib.es2015.core.d.ts
+@@ -322,7 +322,7 @@ interface ObjectConstructor {
+      * Returns the names of the enumerable string properties and methods of an object.
+      * @param o Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object.
+      */
+-    keys(o: {}): string[];
++    keys<T extends {}>(o: T): Array<keyof T>;
+ 
+     /**
+      * Returns true if the values are the same value, false otherwise.
+diff --git a/node_modules/typescript/lib/lib.es5.d.ts b/node_modules/typescript/lib/lib.es5.d.ts
+index 267fd23..d3fbb02 100644
+--- a/node_modules/typescript/lib/lib.es5.d.ts
++++ b/node_modules/typescript/lib/lib.es5.d.ts
+@@ -258,7 +258,7 @@ interface ObjectConstructor {
+      * Returns the names of the enumerable string properties and methods of an object.
+      * @param o Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object.
+      */
+-    keys(o: object): string[];
++    keys<T extends {}>(o: T): Array<keyof T>;
+ }
+ 
+ /**

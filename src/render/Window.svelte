@@ -3,7 +3,7 @@
   
   import { activeWindow, groupContextKey, groups } from "../store";
   import type {GroupStore } from "../store";
-  import {checkTheme, generateWindowStyle, isColor,makeColors,returnIfColor,themeFromUri,themeSerialize,tryColorProp,updateColorsFromUrl} from './window'
+  import {checkTheme, generateWindowStyle,makeColors,themeFromUri,themeSerialize} from './window'
   export let navVis: boolean
   let name: string = 'Components'
   groups.setName(name)

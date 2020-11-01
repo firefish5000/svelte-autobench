@@ -1,2 +1,4 @@
-import {View,Group} from './builder'
-import Autobench from './render/layout.svelte'
+export {
+  View ,Group
+} from './builder'
+export { default as Autobench } from './render/layout.svelte'
