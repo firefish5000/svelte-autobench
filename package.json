@@ -1,9 +1,8 @@
 {
-  "name": "svelte-autobench",
+  "name": "@disposables/svelte-autobench",
   "svelte": "preprocessed/index.js",
-  "module": "dist/index.mjs",
-  "main": "dist/index.js",
-  "version": "0.0.1",
+  "main": "dist/bundle.js",
+  "version": "0.1.0",
   "scripts": {
     "build": "run-p build:tailwind",
     "build:snowpack": "snowpack build",
@@ -78,8 +77,8 @@
   ],
   "files": [
     "src",
-    "dist",
-    "preprocessed"
+    "preprocessed",
+    "dist"
   ],
   "dependencies": {},
   "types": "preprocessed/index.d.ts"
