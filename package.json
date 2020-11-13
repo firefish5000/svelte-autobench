@@ -1,17 +1,16 @@
 {
   "name": "@disposables/svelte-autobench",
   "svelte": "preprocessed/index.js",
-  "main": "dist/bundle.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "build": "run-p build:snowpack",
     "build:snowpack": "snowpack build",
-    "preprocess": "run-s clean:preprocessed preprocess:svelte preprocess:svelte:types preprocess:typescript",
+    "preprocess": "run-s clean:preprocessed preprocess:svelte preprocess:svelte:types preprocess:typescript preprocess:typescript:dts",
     "preprocess:svelte": "npx @tdi/svcli --preprocess",
     "preprocess:svelte:types": "npx svelte2dts --srcDir ./src --outDir ./preprocessed",
-    "preprocess:typescript": "tsc --declaration --outDir './preprocessed'",
+    "preprocess:typescript": "tsc --outDir './preprocessed'",
+    "preprocess:typescript:dts": "tsc --emitDeclarationOnly --declaration --outDir './types'",
     "dev": "run-p dev:checkSvelte dev:tailwind",
-    "prepublishOnly": "npm run build",
     "prepare": "run-p preprocess",
     "autoBuild": "NODE_ENV='development' rollup -c -w",
     "runCheck": "svelte-check --watch",
@@ -85,5 +84,5 @@
     "dist"
   ],
   "dependencies": {},
-  "types": "preprocessed/index.d.ts"
+  "types": "types/index.d.ts"
 }
