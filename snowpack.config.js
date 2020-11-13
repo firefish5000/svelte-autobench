@@ -10,9 +10,6 @@ module.exports = {
     test: '/test',
     src: '/src',
   },
-  installOptions: {
-    "packageLookupFields": ["svelte", "module", "main"]
-  },
   plugins: [
     /*[
       '@snowpack/plugin-run-script',
